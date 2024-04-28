@@ -10,3 +10,8 @@
 
 ## to run
 6. `uvicorn main:app --reload`
+
+## to see if its working
+
+search `http://localhost:8000/health`
+to test api `http://localhost:8000/docs`

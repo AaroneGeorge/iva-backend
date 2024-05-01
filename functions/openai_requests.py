@@ -1,7 +1,7 @@
 import openai
 from decouple import config
 
-from functions.database import get_recent_messages, get_recent_messages_fd
+from functions.database import get_recent_messages, get_recent_messages_fd, store_messages
 
 
 # Retrieve Enviornment Variables
@@ -23,6 +23,7 @@ def get_chat_response(message_input):
       messages=messages
     )
     message_text = response["choices"][0]["message"]["content"]
+    store_messages(message_input, message_text)
     return message_text
   except Exception as e:
     return

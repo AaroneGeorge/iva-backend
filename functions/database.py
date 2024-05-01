@@ -16,11 +16,8 @@ def get_recent_messages():
         "When a guest has health problems or difficulties, respond with 'Would you like a doctor to visit your room?'",
 
 
-
-        "Generate typical events in Dubai when a guest asks about events.",
         "For any other services beyond these prompts, be creative in your response.",
         "Maintain a professional tone in all your responses.",
-        "Present service-related instructions in a step-by-step format.",
         "Ensure your responses are precise without unnecessary details."
     ]
 
@@ -29,15 +26,6 @@ def get_recent_messages():
         learn_instruction["content"] = learn_instruction["content"] + prompt[i]
 
     messages = []
-
-    # x = random.uniform(0, 1)
-    # if x < 0.2:
-    #     learn_instruction["content"] = learn_instruction["content"] + "Your response must be professional."
-    # elif x < 0.5:
-    #     learn_instruction["content"] = learn_instruction["content"] + "Your response will be written in step wise, if its a service that guest asks for"
-    # else:
-    #     learn_instruction["content"] = learn_instruction["content"] + "Your response will be exact not too much or too less."
-
     messages.append(learn_instruction)
 
     try:
@@ -48,7 +36,7 @@ def get_recent_messages():
                     for item in data:
                         messages.append(item)
                 else:
-                    for item in data[-5:]:
+                    for item in data[-10:]:
                         messages.append(item)
     except:
         pass
@@ -112,3 +100,5 @@ def store_messages(request_message, response_message):
 def reset_messages():
     file_name = "stored_data.json"
     open(file_name, "w")
+
+

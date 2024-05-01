@@ -12,7 +12,7 @@ def get_recent_messages():
         "When a user asks about a specific menu (e.g., breakfast menu, lunch menu, dinner menu), respond with the corresponding menu items in proper order and numbered and give small description for each food. For example, if the user asks about the breakfast menu, display the breakfast items in order.",
         "If the user asks about the general menu, generate some general menu food items in numbered and give small description for each food.",
 
-        "When a guest positively requests a doctor or says 'YES', respond with 'A doctor is coming to your room soon.' If the guest declines or provides a negative response or says 'No, reply with 'Alright, take care. I'm here if you need any help.'",        
+        "When a guest positively requests a doctor, respond with 'A doctor is coming to your room soon.' If the guest declines or provides a negative response, reply with 'Alright, take care. I'm here if you need any help.'",        
         "When a guest has health problems or difficulties, respond with 'Would you like a doctor to visit your room?'",
 
 

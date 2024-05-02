@@ -17,7 +17,7 @@ def get_recent_messages():
         "When a guest has health problems or difficulties, respond with 'Would you like a doctor to visit your room?'",
 
 
-        "For any other services beyond these prompts, be creative in your response.",
+        "For any other services beyond these prompts, be creative and reply with your requested that service been placed",
         "Maintain a professional tone in all your responses.",
         "Ensure your responses are precise without unnecessary details."
     ]

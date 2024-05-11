@@ -39,12 +39,9 @@ qa_chain = ConversationalRetrievalChain.from_llm(
     llm=llm,
     memory=memory,
     retriever=vector_db.as_retriever(
-        search_kwargs={'fetch_k': 4, 'k': 3}, search_type='mmr'),
+        search_kwargs={'fetch_k': 1, 'k': 1}, search_type='mmr'),
     chain_type="refine",
 )
-
-# question
-question = "What is the book about?"
 
 
 def rag(question: str) -> str:
@@ -52,3 +49,6 @@ def rag(question: str) -> str:
     response = qa_chain({"question": question})
 
     return response.get("answer")
+
+ans = rag("who is your creator?")
+print(ans)

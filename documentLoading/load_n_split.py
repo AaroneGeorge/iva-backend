@@ -15,7 +15,7 @@ vectordb = Chroma.from_documents(
     documents=pages,
     embedding=embedding_func,
     persist_directory=f"../vector_db",
-    collection_name="rich_dad_poor_dad")
+    collection_name="iva_train")
 
 
 vectordb.persist()

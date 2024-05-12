@@ -5,4 +5,4 @@ vector embeddings
 to run
 
 cd chatbot
-python rag.....py
+python rag_function.py

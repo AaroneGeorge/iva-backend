@@ -2,7 +2,7 @@
 
 vector embeddings
 
-to run
+# to run
 
 cd chatbot </br>
 python rag_function.py

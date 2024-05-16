@@ -1,4 +1,8 @@
 # iva-backend
 
-checkout to master branch
-This branch is irrelevant
+vector embeddings
+
+# to run
+
+cd chatbot </br>
+python rag_function.py

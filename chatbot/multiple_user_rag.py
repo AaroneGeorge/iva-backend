@@ -43,12 +43,36 @@ qa_chain = ConversationalRetrievalChain.from_llm(
     chain_type="refine",
 )
 
+u_history = {}
 
-def rag(question: str) -> str:
-    # call QA chain
-    response = qa_chain({"question": question})
-
+def rag(question: str, uid: str) -> str:
+    if uid not in u_history:
+        u_history[uid] = []
+    
+    user_message = {"sender": "user", "content": question}
+    u_history[uid].append(user_message)
+    
+    chat_history = [msg for msg_list in u_history.values() for msg in msg_list]
+    
+    response = qa_chain({"question": question, "chat_history": chat_history})
+    
+    assistant_message = {"sender": "assistant", "content": response.get("answer")}
+    u_history[uid].append(assistant_message)
+    
     return response.get("answer")
 
-ans = rag("please arrange the laundry to be done and generate the ai-code corresponding to it.")
+ans = rag("my ac is not working", "u123")
 print(ans)
+print(u_history)
+
+ans = rag("what is your name", "u456")
+print(ans)
+print(u_history)
+
+ans = rag("set me an alarm", "u123")
+print(ans)
+print(u_history)
+
+ans = rag("what did i ask you before", "u123")
+print(ans)
+print(u_history)

@@ -14,7 +14,7 @@
 9. `pip install langchain langchain-community langchain-openai`
 
 ## to run
-6. `uvicorn main:app --reload`
+`uvicorn main:app --reload`
 
 ## to see if its working
 

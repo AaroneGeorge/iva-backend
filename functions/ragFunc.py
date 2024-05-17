@@ -11,7 +11,7 @@ embedding_function = SentenceTransformerEmbeddings(
 )
 
 vector_db = Chroma(
-    persist_directory="../vector_db",
+    persist_directory="./vector_db",
     collection_name="iva_train",
     embedding_function=embedding_function,
 )
@@ -44,11 +44,14 @@ qa_chain = ConversationalRetrievalChain.from_llm(
 )
 
 
-def rag(question: str) -> str:
-    # call QA chain
+def rag(question):
     response = qa_chain({"question": question})
+    print(response.get("answer"))
 
     return response.get("answer")
 
-ans = rag("i dont want an extra bed")
-print(ans)
+
+
+
+# question = input("Enter your question: ")
+# rag(question)

@@ -1,7 +1,7 @@
 import openai
 from decouple import config
-from rag_function import rag
 
+from functions.ragFunc import rag
 from functions.database import get_recent_messages, get_recent_messages_fd, store_messages
 
 
@@ -16,7 +16,7 @@ def get_chat_response(message_input):
   messages = get_recent_messages()
   user_message = {"role": "user", "content": "guest requirment: " + message_input}
   messages.append(user_message)
-  print(messages)
+  # print(messages)
 
   try:
     response = openai.ChatCompletion.create(
@@ -46,7 +46,9 @@ def get_chat_response_fd(message_input):
   except Exception as e:
     return
 
-def get_new_chat_res(question):
+def get_new_chat_resp(question):
 
   messages = rag(question)
-  print(messages)
+  return messages
+
+  

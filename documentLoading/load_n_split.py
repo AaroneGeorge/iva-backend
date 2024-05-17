@@ -2,7 +2,7 @@ from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.embeddings import SentenceTransformerEmbeddings
 from langchain_community.vectorstores import Chroma
 
-PDF_PATH = "../documents/iva_train.pdf"
+PDF_PATH = "./iva_train.pdf"
 
 loader = PyPDFLoader(PDF_PATH)
 pages = loader.load_and_split()

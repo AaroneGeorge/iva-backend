@@ -15,7 +15,7 @@ class Message(BaseModel):
 
 
 # Custom function imports
-from functions.openai_requests import get_chat_response, get_chat_response_fd, get_new_chat_res
+from functions.openai_requests import get_chat_response, get_chat_response_fd, get_new_chat_resp
 from functions.database import store_messages, reset_messages
 
 
@@ -39,6 +39,7 @@ origins = [
     "http://localhost:3002",
     "http://localhost:3000",
     "http://localhost:3003",
+    "http://127.0.0.1:8000/",
 ]
 
 
@@ -72,13 +73,13 @@ async def chat(message: Message):
     response = get_chat_response(message.message)
     return {"response": response}
 
-@app.post("/fdchat/")
+@app.post("/fdchat/")   
 async def chat(message: Message):
     response = get_chat_response_fd(message.message)
     return {"response": response}
 
 @app.post("/new_chat/")
-async def new_chat(message: Message):
-    response = get_new_chat_res(message.message)
+async def chat(message: Message):
+    response = get_new_chat_resp(message.message)
     return {"response": response}
 

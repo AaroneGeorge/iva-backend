@@ -12,6 +12,7 @@
 7. `pip install langchain-community`
 8. `pip install langchain-openai`
 9. `pip install langchain langchain-community langchain-openai`
+10. `pip install sentence-transformers`
 
 ## to run
 `uvicorn main:app --reload`

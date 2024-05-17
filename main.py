@@ -15,7 +15,7 @@ class Message(BaseModel):
 
 
 # Custom function imports
-from functions.openai_requests import get_chat_response, get_chat_response_fd
+from functions.openai_requests import get_chat_response, get_chat_response_fd, get_new_chat_res
 from functions.database import store_messages, reset_messages
 
 
@@ -75,5 +75,10 @@ async def chat(message: Message):
 @app.post("/fdchat/")
 async def chat(message: Message):
     response = get_chat_response_fd(message.message)
+    return {"response": response}
+
+@app.post("/new_chat/")
+async def new_chat(message: Message):
+    response = get_new_chat_res(message.message)
     return {"response": response}
 

@@ -1,5 +1,6 @@
 import openai
 from decouple import config
+from rag_function import rag
 
 from functions.database import get_recent_messages, get_recent_messages_fd, store_messages
 
@@ -44,3 +45,8 @@ def get_chat_response_fd(message_input):
     return message_text
   except Exception as e:
     return
+
+def get_new_chat_res(question):
+
+  messages = rag(question)
+  print(messages)

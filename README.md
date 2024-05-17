@@ -13,6 +13,7 @@
 9. `pip install langchain langchain-community langchain-openai`
 10. `pip install sentence-transformers`
 11. `pip install chromadb`
+12. `pip install pypdf`
 
 ## to run
 `uvicorn main:app --reload`

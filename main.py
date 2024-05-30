@@ -65,18 +65,15 @@ async def reset_conversation():
     reset_messages()
     return {"response": "conversation reset"}
 
+# @app.post("/chat/")
+# async def chat(message: Message):
+#     response = get_chat_response(message.message)
+#     return {"response": response}
 
-
-
-@app.post("/chat/")
-async def chat(message: Message):
-    response = get_chat_response(message.message)
-    return {"response": response}
-
-@app.post("/fdchat/")   
-async def chat(message: Message):
-    response = get_chat_response_fd(message.message)
-    return {"response": response}
+# @app.post("/fdchat/")   
+# async def chat(message: Message):
+#     response = get_chat_response_fd(message.message)
+#     return {"response": response}
 
 @app.post("/new_chat/")
 async def chat(message: Message):

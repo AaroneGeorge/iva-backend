@@ -27,7 +27,7 @@ def get_chat_response(message_input):
     store_messages(message_input, message_text)
     return message_text
   except Exception as e:
-    return
+    return "error"
   
 def get_chat_response_fd(message_input):
 

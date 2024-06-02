@@ -1,21 +1,25 @@
-from langchain_community.document_loaders import PyPDFLoader 
+from langchain_community.document_loaders import CSVLoader
 from langchain_community.embeddings import SentenceTransformerEmbeddings
 from langchain_community.vectorstores import Chroma
 
-PDF_PATH = "./iva_train.pdf"
+CSV_PATH = "./iva.csv"
 
-loader = PyPDFLoader(PDF_PATH)
-pages = loader.load_and_split()
+# Load the CSV file
+loader = CSVLoader(file_path=CSV_PATH)
+documents = loader.load_and_split()
 
+# Initialize the embedding function
 embedding_func = SentenceTransformerEmbeddings(
     model_name="all-MiniLM-L6-v2"
 )
 
+# Create the vector database
 vectordb = Chroma.from_documents(
-    documents=pages,
+    documents=documents,
     embedding=embedding_func,
-    persist_directory=f"../vector_db",
-    collection_name="iva_train")
+    persist_directory="../vector_db",
+    collection_name="iva_train"
+)
 
-
+# Persist the vector database
 vectordb.persist()

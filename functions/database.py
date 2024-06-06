@@ -4,7 +4,7 @@ import random
 
 def get_recent_messages():
     file_name = "stored_data.json"
-    learn_instruction = {"role": "system", "content": "You are IVA - inplass virtual assistant. Keep responses under 120 words. "}
+    learn_instruction = {"role": "system", "content": "You are IVA (Inplass Virtual Assistant). Keep responses under 120 words. "}
     
     prompt = [        
         "When a guest has health problems or difficulties, respond with 'Would you like a doctor to visit your room?'",
